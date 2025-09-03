@@ -17,6 +17,19 @@ namespace SalonReservations.View.Components
 
         protected override async Task OnInitializedAsync()
         {
+            await SetStylists();
+        }
+
+        public void MakeAppointment(Stylist stylist)
+        {
+            if (!String.IsNullOrEmpty(ServiceName))
+                _navManager.NavigateTo($"/appointment/schedule?service={Uri.EscapeDataString(ServiceName)}&stylist={stylist.UserId}");
+            else
+                _navManager.NavigateTo($"/services?stylist={stylist.UserId}");
+        }
+
+        private async Task SetStylists()
+        {
             IsLoading = true;
 
             if (!string.IsNullOrEmpty(ServiceName))
@@ -27,12 +40,10 @@ namespace SalonReservations.View.Components
             IsLoading = false;
         }
 
-        public void MakeAppointment(Stylist stylist)
+        public async Task ClearData()
         {
-            if (!String.IsNullOrEmpty(ServiceName))
-                _navManager.NavigateTo($"/appointment/schedule?service={Uri.EscapeDataString(ServiceName)}&stylist={stylist.UserId}");
-            else
-                _navManager.NavigateTo($"/services?stylist={stylist.UserId}");
+            ServiceName = null;
+            await SetStylists();
         }
     }
 }

@@ -10,10 +10,16 @@
 else
 {
     <ul class="list-group mt-4">
-        @foreach (var app in _appoinments)
+        @for (int i = 0; i < _appoinments.Count(); i++)
         {
+            var app = _appoinments[i];
             var imgSrc = $"images/stylist{app.StylistId}.jpeg";
-            <li class="list-group-item d-flex flex-row">
+            string styling = "list-group-item d-flex flex-row";
+            if (i % 2 == 0)
+            {
+                styling = "list-group-item bg-light d-flex flex-row";
+            }
+            <li class="@styling">
                 <img src="@imgSrc" style="width:100px;height:auto" class="me-4" />
                 <div class="align-self-center mt-2">
                     <b>@app.StartTime</b>

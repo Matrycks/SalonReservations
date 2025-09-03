@@ -63,6 +63,21 @@ h1:focus {
     color: white;
 }
 
-    .blazor-error-boundary::after {
-        content: "An error has occurred."
+.blazor-error-boundary::after {
+    content: "An error has occurred."
+}
+
+.salon-card {
+    width: 18.35rem !important;
+}
+
+
+footer a {
+    color:#c35ca8;
+}
+
+@media (max-width: 750px) {
+    .salon-card {
+        width:auto !important;
     }
+}

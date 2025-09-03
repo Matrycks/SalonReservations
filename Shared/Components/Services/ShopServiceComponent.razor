@@ -14,6 +14,15 @@
         </div>
     </div>
 }
+else if (Stylist != null)
+{
+    <div class="alert alert-secondary d-flex flex-row">
+        <div class="flex-grow-1 mt-2">
+            <b>@Stylist.Name</b> specializes in the following services.
+        </div>
+        <button class="btn btn-light" @onclick="ClearData">clear</button>
+    </div>
+}
 <div class="row">
     <div class="col">
         <div class="d-flex flex-row justify-content-center flex-wrap">
@@ -21,8 +30,9 @@
             {
                 @if (Stylist == null || !IsMinimalDesign)
                 {
-                    <div class="card m-2" style="width: 18rem;">
-                        <img src="images/service1.jpg" class="card-img-top" style="max-height:180px" alt="...">
+                    var imgSrc = $"images/service{service.ServiceId}.jpg";
+                    <div class="card salon-card img-fluid m-2">
+                        <img src="@imgSrc" class="card-img-top" style="max-height:180px" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">@service.Name</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of

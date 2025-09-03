@@ -19,6 +19,11 @@ namespace SalonReservations.View.Components
 
         protected override async Task OnParametersSetAsync()
         {
+            await SetServices();
+        }
+
+        private async Task SetServices()
+        {
             IEnumerable<ServiceEntity> serviceEntities = [];
             if (Stylist == null)
                 serviceEntities = await _shopServices.ListServices();
@@ -34,6 +39,12 @@ namespace SalonReservations.View.Components
                 _navManager.NavigateTo($"/stylists?service={Uri.EscapeDataString(service.Name)}");
             else
                 _navManager.NavigateTo($"/appointment/schedule?service={Uri.EscapeDataString(service.Name)}&stylist={Stylist.UserId}");
+        }
+
+        public async Task ClearData()
+        {
+            Stylist = null;
+            await SetServices();
         }
     }
 }

@@ -20,8 +20,11 @@ else
         </div>
         @if (!string.IsNullOrEmpty(ServiceName))
         {
-            <h4 class="mt-4">Selected service(s):</h4>
-            <p class="mb-4">@ServiceName</p>
+            <div class="mt-4 d-flex flex-row align-items-center">
+                <h5 class="me-2">Selected service(s):</h5>
+                <button class="btn btn-light" @onclick="ClearData">clear</button>
+            </div>
+            <p class="badge bg-secondary mb-4">@ServiceName</p>
         }
 
         @if (Stylists.Count() <= 0)
@@ -38,7 +41,7 @@ else
                         @foreach (var stylist in Stylists)
                         {
                             var imgSrc = $"images/stylist{stylist.UserId}.jpeg";
-                            <div class="card m-2" style="width: 24.5rem;">
+                            <div class="card salon-card m-2">
                                 <img src="@imgSrc" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">@stylist.Name</h5>
