@@ -1,0 +1,91 @@
+## .NET build artifacts
+bin/
+obj/
+out/
+[Bb]uild/
+[Ll]ogs/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+## ASP.NET specific
+appsettings.Development.json
+appsettings.Local.json
+
+## Visual Studio Code
+.vscode/
+.history/
+.vscode-test/
+
+## Rider/JetBrains
+.idea/
+*.sln.iml
+
+## .NET Core generated files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Blazor WebAssembly
+wwwroot/css/app.bundle.scp.css
+wwwroot/css/app.bundle.scp.css.map
+
+## Coverage reports
+coverage/
+coverage*.json
+coverage*.xml
+*.lcov
+
+## Logs
+*.log
+logs/
+
+## NPM artifacts (if using JS interop)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+## Bundler & minifier
+bundleconfig.json
+
+## Publish output
+publish/
+wwwroot/dist/
+
+## Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+## macOS
+.DS_Store
+
+## Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+## Linux
+*~
+
+## Optional: Secrets (be careful!)
+secrets.json
+
+## Dotnet watch temp
+**/.dotnetwatch/
+
+## Static Web Assets
+**/obj/**/staticwebassets/
+**/obj/**/scopedcss/
+
+## Razor Component generated files
+**/obj/**/*.razor.g.cs
+**/obj/**/*.razor.css
+**/obj/**/*.razor.css.map
+
+UX_Design/

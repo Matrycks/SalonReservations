@@ -1,0 +1,36 @@
+﻿@page "/appointment/confirmation"
+
+@if (Appointment == null)
+{
+    <div class="alert alert-danger" role="alert">
+        No appointment recognized.
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col">
+            <div class="d-flex justify-content-center">
+                <img src="@StylistImgSrc" class="rounded-circle" alt="..." width="200">
+            </div>
+        </div>
+    </div>
+    <div class="row my-4">
+        <div class="col text-center">
+            <h3 class="mb-3">Appointment Created</h3>
+            <p>
+                Your appointment has been successfully booked for
+                <b>@($"{Appointment.StartTime.ToString("dddd, MM/dd/yyyy 'at' hh:mm tt")}") with
+                    @Appointment.Stylist?.Name</b>.
+                Let us know if you have any questions. We look forward to seeing you then!
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <a href="/" class="btn btn-primary p-4 w-25">
+                Home
+            </a>
+        </div>
+    </div>
+}

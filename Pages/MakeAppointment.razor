@@ -1,0 +1,57 @@
+@page "/appointment/schedule"
+@using SalonReservations.Shared.Components
+@namespace SalonReservations.Pages
+
+<div class="d-flex bg-light justify-content-center p-4" style="height:150px">
+    <img src=@StylistImgSrc class="rounded-circle m-4" alt="@Stylist?.Name" width="200"
+        style="position:absolute;z-index:1000;top:50px">
+</div>
+<div class="row">
+    <div class="col">
+        <CalendarComponent OnDateChanged="OnDateChanged" />
+    </div>
+</div>
+
+@if (!_render)
+{
+    <div class="alert alert-danger">
+        Something went wrong, please try again.
+    </div>
+}
+else if (_timeSlots != null && _timeSlots.Count() > 0)
+{
+    <div class="row mt-4">
+        <div class="col">
+            <center>
+                <h3>Available Times</h3>
+            </center>
+            <div class="d-flex timeslots flex-wrap justify-content-center my-4">
+                @foreach (var slot in _timeSlots)
+                {
+                    <button class='btn btn-secondary text-white p-2 me-2 mb-2 @(IsSelectedSlot(slot) ? "active" : "")'
+                        @onclick=@(() => SelectTimeSlot(slot.TimeSlotId))>
+                        @slot.Start.ToString("hh:mm:tt")
+                    </button>
+                }
+            </div>
+            @if (_selectedTimeSlot != null)
+            {
+                <div class="row text-center mb-4">
+                    <div class="alert alert-primary">
+                        <h5>Appointment</h5>
+                        <p>@_selectedTimeSlot.Start.ToString("dddd, MM/dd/yyyy 'at' hh:mm tt")</p>
+                    </div>
+                </div>
+            }
+            <center>
+                <button class="btn btn-primary p-4" @onclick="ScheduleAppointment">Set Appointment</button>
+            </center>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning mt-4">
+        No times available for @Stylist?.Name. Please select another stylist.
+    </div>
+}

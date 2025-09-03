@@ -1,0 +1,63 @@
+﻿@namespace SalonReservations.View.Components
+@using SalonReservations.Models
+
+@if (IsLoading)
+{
+    <p>Loading...</p>
+}
+else
+{
+    @if (!IsCompactDesign)
+    {
+        <div class="row">
+            <div class="col-12">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search Stylists" aria-label="Search Stylists"
+                        aria-describedby="btnSearch" disabled>
+                    <button class="btn btn-outline-secondary" type="button" id="btnSearch">Search</button>
+                </div>
+            </div>
+        </div>
+        @if (!string.IsNullOrEmpty(ServiceName))
+        {
+            <h4 class="mt-4">Selected service(s):</h4>
+            <p class="mb-4">@ServiceName</p>
+        }
+
+        @if (Stylists.Count() <= 0)
+        {
+            <div class="alert alert-warning">
+                No stylists found
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex flex-row justify-content-center flex-wrap">
+                        @foreach (var stylist in Stylists)
+                        {
+                            var imgSrc = $"images/stylist{stylist.UserId}.jpeg";
+                            <div class="card m-2" style="width: 24.5rem;">
+                                <img src="@imgSrc" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">@stylist.Name</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                                        the card's content.</p>
+                                    <div class="d-grid gap-2 col-6 mx-auto">
+                                        <button class="btn btn-primary" @onclick="() => MakeAppointment(stylist)">Make
+                                            Appointment</button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+
+    }
+}

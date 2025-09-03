@@ -1,0 +1,29 @@
+﻿@page "/appointments"
+
+<h1>Appointments</h1>
+@if (_appoinments == null || _appoinments.Count() <= 0)
+{
+    <div class="alert alert-danger mt-4">
+        <p>No appointments available</p>
+    </div>
+}
+else
+{
+    <ul class="list-group mt-4">
+        @foreach (var app in _appoinments)
+        {
+            var imgSrc = $"images/stylist{app.StylistId}.jpeg";
+            <li class="list-group-item d-flex flex-row">
+                <img src="@imgSrc" style="width:100px;height:auto" class="me-4" />
+                <div class="align-self-center mt-2">
+                    <b>@app.StartTime</b>
+                    <br />
+                    <small class="text-muted">@app.Stylist!.Name : @app.Service!.Duration mins</small>
+                    <p>
+                        Appointment for @app.Service!.Name
+                    </p>
+                </div>
+            </li>
+        }
+    </ul>
+}
