@@ -1,5 +1,12 @@
 {
   "dependencies": {
-    "@popperjs/core": "^2.11.8"
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.8"
+  },
+  "devDependencies": {
+    "sass": "^1.92.0"
+  },
+    "scripts": {
+    "build:sass": "sass wwwroot/scss/custom.scss wwwroot/css/bootstrap-custom.css --style=compressed"
   }
 }
