@@ -7,6 +7,7 @@
     "sass": "^1.92.0"
   },
     "scripts": {
-    "build:sass": "sass wwwroot/scss/custom.scss wwwroot/css/bootstrap-custom.css --style=compressed"
+    "build:sass": "sass wwwroot/scss/custom.scss wwwroot/css/bootstrap-custom.css --style=compressed",
+    "build": "echo \"no build needed\""
   }
 }
