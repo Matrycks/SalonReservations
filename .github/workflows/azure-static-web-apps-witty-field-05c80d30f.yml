@@ -35,6 +35,7 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WITTY_FIELD_05C80D30F }}
           app_location: "."
           output_location: "bin/Release/net9.0/publish/wwwroot"
+          deployment_action: "upload"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
