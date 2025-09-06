@@ -3,7 +3,7 @@
 > This demo web app provides a seamless and user-friendly interface for exploring and booking salon services.
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Build](https://img.shields.io/github/workflow/status/Matrycks/SalonReservations/azure-static-web-apps-witty-field-05c80d30f)
+![Build Status](https://img.shields.io/github/actions/workflow/status/Matrycks/SalonReservations/azure-static-web-apps-witty-field-05c80d30f.yml?branch=main)
 ![Platform](https://img.shields.io/badge/platform-.NET%209-blue)
 
 ---
@@ -37,9 +37,9 @@ This demo web application is designed to modernize and streamline the salon serv
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/)
 - [Node.js](https://nodejs.org/) (optional, if using frontend tooling)
-- [Blazor Wasm]
-- [InMemory Sql Database]
-- [Entity Framework]
+- Blazor Wasm
+- InMemory Sql Database
+- Entity Framework
 
 ### Installation
 
